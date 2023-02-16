@@ -26,6 +26,8 @@ describe('UnleashFeaturesClient', () => {
   test('sendMetrics()', async () => {
     await featuresClient.getFeatures()
 
-    expect(unleashClient.get).toHaveBeenCalledWith('/features')
+    expect(unleashClient.get).toHaveBeenCalledWith('/features', {
+      headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
+    })
   })
 })

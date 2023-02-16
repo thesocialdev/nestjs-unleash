@@ -7,6 +7,8 @@ export class UnleashFeaturesClient {
   constructor(private readonly client: UnleashClient) {}
 
   getFeatures(): Promise<GetFeaturesResponse> {
-    return this.client.get('/features')
+    return this.client.get('/features', {
+      headers: { 'Accept-Encoding': 'gzip,deflate,compress' },
+    })
   }
 }
